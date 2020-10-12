@@ -71,11 +71,21 @@ module.exports.turnOn = function turnOn(deviceId, callback) {
 	send({turnOn: deviceId, id: id});
 }
 
+module.exports.turnOnSync = function turnOnSync(deviceId) {
+	//log("Turning ON " + deviceId + "...");
+	send({turnOnSync: deviceId});
+}
+
 module.exports.turnOff = function turnOff(deviceId, callback) {
 	//log("Turning OFF " + deviceId + "...");
 	var id = ++CB_ID;
 	question[id] = callback;
 	send({turnOff: deviceId, id: id});
+}
+
+module.exports.turnOffSync = function turnOffSync(deviceId) {
+	//log("Turning OFF " + deviceId + "...");
+	send({turnOffSync: deviceId});
 }
 
 module.exports.removeEventListener = removeEventListener;
