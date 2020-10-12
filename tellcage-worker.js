@@ -31,6 +31,9 @@ function message(msg) {
 			
 		});
 	}
+	else if(msg.turnOnSync) {
+		telldus.turnOnSync(msg.turnOnSync);
+	}
 	else if(msg.turnOff) {
 		telldus.turnOff(msg.turnOff, function(err) {
 			//console.log("Turned off " + msg.turnOff);
@@ -38,6 +41,9 @@ function message(msg) {
 			
 			//getStatus(msg.turnOff);
 		});
+	}
+	else if(msg.turnOffSync) {
+		telldus.turnOffSync(msg.turnOffSync);
 	}
 	else if(msg.ping) {
 		process.send({pong: msg.ping});
